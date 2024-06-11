@@ -31,12 +31,38 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 input.onButtonPressed(Button.A, function () {
     radio.sendNumber(0)
-})
-input.onButtonPressed(Button.AB, function () {
-    radio.sendNumber(2)
+    basic.showLeds(`
+        . . . . .
+        . . # . .
+        . # # # .
+        . . # . .
+        . . . . .
+        `)
+    basic.pause(100)
+    basic.clearScreen()
 })
 input.onButtonPressed(Button.B, function () {
     radio.sendNumber(1)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . # # # .
+        . . . . .
+        . . . . .
+        `)
+    basic.pause(100)
+    basic.clearScreen()
+})
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    radio.sendNumber(2)
+    basic.showLeds(`
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        `)
+    basic.pause(100)
+    basic.clearScreen()
 })
 radio.setGroup(1)
-basic.showString("Morse Code")
